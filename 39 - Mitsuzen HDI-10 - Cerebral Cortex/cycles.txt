@@ -1,4 +1,4 @@
-; Score: 346 cycles
+; Score: 310 cycles
 
 ;--------------------------------------------------------------------
 ; XA
@@ -45,19 +45,21 @@ COPY T M
 
 MODE ; LOCAL
 
+MAKE
+COPY T F
+
 COPY 0 X
 MARK COUNT
+SEEK -1
 COPY M T
 FJMP DONE
-HOST T
-TEST M < T
+TEST T < F
 ADDI X T X
 JUMP COUNT
 
 MARK DONE
-MODE ; GLOBAL
-
 ; READ SYNC TIME
+MODE ; GLOBAL
 COPY M T
 
 MARK SYNC
@@ -74,6 +76,7 @@ TJMP SYNC2
 
 HOST M
 COPY #NERV M
+WIPE
 
 
 ;--------------------------------------------------------------------
@@ -104,9 +107,6 @@ MARK B
 COPY F T
 REPL REPORTER
 
-NOOP
-NOOP
-NOOP
 NOOP
 NOOP
 NOOP
@@ -180,8 +180,4 @@ REPL W
 MARK REPORT
 COPY 1 #NERV
 ; NERV EXISTS!
-
 COPY T M
-FJMP JONE
-COPY T M
-MARK JONE
