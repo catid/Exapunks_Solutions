@@ -1,0 +1,72 @@
+; Score: 240 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+GRAB 300
+COPY F X
+DROP
+LINK 800
+
+GRAB 199
+
+MARK A
+TEST F = X
+SEEK 2
+FJMP A
+
+SEEK -1
+COPY F X
+DROP
+
+LINK 799
+
+GRAB X
+SEEK 2
+
+COPY 0 X
+MARK B
+ADDI F X X
+TEST EOF
+FJMP B
+
+SEEK -9999
+SEEK 2
+
+MARK E
+TEST X > 824
+FJMP G
+SUBI X 825 X
+COPY 75 F
+COPY 75 F
+COPY 75 F
+COPY 75 F
+COPY 75 F
+COPY 75 F
+COPY 75 F
+COPY 75 F
+COPY 75 F
+COPY 75 F
+COPY 75 F
+JUMP E
+
+MARK G
+TEST X > 224
+FJMP C
+SUBI X 225 X
+COPY 75 F
+COPY 75 F
+COPY 75 F
+JUMP G
+
+MARK C
+TEST X < 150
+TJMP H
+COPY 75 F
+MARK H
+TEST X < 75
+TJMP D
+COPY 75 F
+MARK D
+MODI X 75 F

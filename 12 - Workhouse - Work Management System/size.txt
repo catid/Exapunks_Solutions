@@ -1,0 +1,41 @@
+; Score: 28 Size
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+GRAB 300
+COPY F X
+DROP
+LINK 800
+
+GRAB 199
+
+MARK A
+TEST F = X
+SEEK 2
+FJMP A
+
+SEEK -1
+COPY F X
+DROP
+
+LINK 799
+
+GRAB X
+SEEK 2
+
+COPY 0 X
+MARK B
+ADDI F X X
+SEEK -1
+VOID F
+TEST EOF
+FJMP B
+
+DIVI X 75 T
+MARK C
+COPY 75 F
+SUBI T 1 T
+TJMP C
+MODI X 75 F

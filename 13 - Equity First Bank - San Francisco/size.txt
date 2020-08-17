@@ -1,0 +1,25 @@
+; Score: 15 Size
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+LINK 800
+LINK 800
+LINK 800
+
+COPY 6 T
+MARK B
+REPL C
+SUBI T 1 T
+TJMP B
+
+MARK C
+ADDI 800 T T
+LINK T
+
+MARK A
+COPY 20 #DISP
+TEST #CASH = 0
+FJMP A
+

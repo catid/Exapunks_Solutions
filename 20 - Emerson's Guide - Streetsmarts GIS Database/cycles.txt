@@ -1,0 +1,64 @@
+; Score: 42 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+GRAB 300
+LINK 800
+SEEK 1
+COPY F T
+
+FJMP GONS
+
+MARK C
+LINK 801
+SUBI T 1 T
+TJMP C
+
+; GO NORTH-SOUTH
+MARK GONS
+COPY F X
+
+TEST X > 0
+TJMP POS
+
+; HANDLE X <= 0
+SWIZ X -4321 T
+
+; HANDLE ZERO
+FJMP DONE
+
+MARK A
+LINK 802
+SUBI T 1 T
+TJMP A
+JUMP DONE
+
+; HANDLE X > 0
+MARK POS
+COPY X T
+
+MARK B
+LINK 800
+SUBI T 1 T
+TJMP B
+
+MARK DONE
+SEEK -3
+COPY F X
+WIPE
+GRAB 200
+
+MARK D
+TEST F = X
+TJMP E
+SEEK 5
+JUMP D
+
+MARK E
+COPY F X
+COPY X F
+COPY X F
+COPY X F
+COPY X F

@@ -1,0 +1,34 @@
+; Score: Wins=100
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+LINK 800
+
+MARK S
+
+LINK 800
+REPL A
+REPL B
+LINK -1
+
+LINK 801
+REPL A
+LINK -1
+
+LINK 802
+REPL A
+LINK -1
+
+JUMP S
+
+MARK B
+LINK 799
+KILL
+
+MARK A
+COPY #FILE X
+GRAB X
+LINK -1
+LINK -1

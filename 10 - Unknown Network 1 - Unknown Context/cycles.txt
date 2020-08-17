@@ -1,0 +1,46 @@
+; Score: 18 Cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+LINK 800
+
+REPL B
+REPL C
+REPL D
+
+LINK 800
+LINK 800
+JUMP E
+
+MARK B
+LINK 800
+LINK 801
+JUMP E
+
+MARK C
+LINK 801
+LINK 800
+JUMP E
+
+MARK D
+LINK 801
+LINK 801
+JUMP E
+
+MARK E
+REPL F
+LINK 800
+JUMP G
+
+MARK F
+LINK 801
+
+MARK G
+KILL
+GRAB 276
+LINK -1
+LINK -1
+LINK -1
+LINK -1

@@ -1,0 +1,118 @@
+; Score: 397 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+MODE
+GRAB 300
+LINK 800
+LINK 799
+
+SEEK 1
+COPY F X
+REPL AZIM
+
+SEEK 1
+COPY F X
+REPL ELEV
+
+SEEK 1
+COPY F X
+COPY X #FREQ
+WIPE
+
+GRAB 301
+SEEK 1
+
+COPY M X
+COPY M X
+MODE
+
+MARK E
+ADDI -9999 F X
+ADDI M X X
+TEST X > 1
+TJMP F
+ADDI X 9999 #DATA
+JUMP E
+MARK F
+SUBI X 1 #DATA
+JUMP E
+
+
+MARK AZIM
+LINK 800
+
+SUBI X #AZIM T
+TEST T > -8
+TJMP A
+COPY -1 #MOTR
+COPY -1 #MOTR
+COPY -1 #MOTR
+COPY -1 #MOTR
+COPY -1 #MOTR
+COPY -1 #MOTR
+COPY -1 #MOTR
+COPY -1 #MOTR
+
+MARK A
+SUBI X #AZIM T
+MULI T 9999 T
+DIVI T 9999 T
+FJMP B
+COPY T #MOTR
+JUMP A
+MARK B
+LINK -1
+COPY 1 M
+HALT
+
+MARK ELEV
+LINK 801
+MARK C
+SUBI X #ELEV T
+MULI T 9999 T
+DIVI T 9999 T
+FJMP D
+COPY T #MOTR
+JUMP C
+MARK D
+LINK -1
+COPY 1 M
+HALT
+
+
+;--------------------------------------------------------------------
+; XB
+;--------------------------------------------------------------------
+
+GRAB 301
+LINK 800
+LINK 799
+
+
+;--------------------------------------------------------------------
+; XC
+;--------------------------------------------------------------------
+
+LINK 800
+GRAB 199
+
+COPY 24 X
+MARK A
+COPY F M
+SUBI X 1 X
+TEST X = 0
+TJMP B
+TEST EOF
+FJMP A
+SEEK -9999
+JUMP A
+
+MARK B
+DROP
+LINK 799
+KILL
+GRAB 301
+WIPE

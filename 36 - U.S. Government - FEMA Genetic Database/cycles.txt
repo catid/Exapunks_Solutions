@@ -1,0 +1,120 @@
+; Score: 643 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+; READ SOURCE
+GRAB 300
+COPY F X
+DROP
+
+LINK 800
+
+REPL READER
+REPL READER
+REPL READER
+REPL READER
+REPL READER
+REPL READER
+REPL READER
+REPL READER
+REPL READER
+REPL READER
+
+LINK 801
+GRAB 200
+
+MARK A
+TEST F = X
+TJMP FOUND
+SEEK 10
+JUMP A
+
+MARK FOUND
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+HALT
+
+MARK READER
+COPY M X
+
+SWIZ X 0003 T
+ADDI T 800 T
+LINK T
+
+MODE ; LOCAL
+COPY X M
+
+MAKE
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+
+LINK -1
+
+COPY 1 M
+
+
+;--------------------------------------------------------------------
+; XB
+;--------------------------------------------------------------------
+
+LINK 800
+
+MODE ; LOCAL
+
+LINK 801
+REPL READER
+LINK -1
+LINK 802
+REPL READER
+LINK -1
+LINK 803
+REPL READER
+LINK -1
+LINK 804
+REPL READER
+LINK -1
+LINK 805
+REPL READER
+HALT
+
+; READER
+MARK READER
+COPY M X
+
+SWIZ X 0002 T
+ADDI T 200 T
+GRAB T
+
+SWIZ X 0001 T
+MULI T 10 T
+SEEK T
+
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+JUMP READER

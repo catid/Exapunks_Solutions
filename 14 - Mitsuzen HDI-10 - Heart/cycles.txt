@@ -1,0 +1,39 @@
+; Score: 97 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+LINK 800
+
+COPY 1 X
+REPL B
+REPL C
+
+MARK A
+DIVI #NERV -10 T
+SUBI T 2 T
+COPY T M
+COPY T M
+JUMP A
+
+MARK B
+ADDI X 2 X
+MARK C
+LINK X
+LINK X
+
+MARK D
+MULI X -55 T
+ADDI T 95 #NERV
+
+MULI X 55 T
+ADDI T -125 #NERV
+
+COPY M T
+
+MARK E
+COPY -70 #NERV
+SUBI T 1 T
+TJMP E
+JUMP D

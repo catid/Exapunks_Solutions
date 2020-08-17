@@ -1,0 +1,152 @@
+; Score: 3886 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+LINK 800
+LINK 802
+LINK 799
+GRAB 199
+
+MARK A
+COPY 0 X
+
+MARK B
+TEST F < 0
+TJMP A
+ADDI X 1 X
+TEST X = 16
+FJMP B
+SEEK -16
+
+MULI F 2 X
+SWIZ X 0002 T
+FJMP C
+SUBI X 9 X
+MARK C
+ADDI X F X
+SWIZ X 0100 X
+
+MULI F 2 T
+ADDI X T X
+SWIZ X 0002 T
+FJMP D
+SUBI X 9 X
+MARK D
+ADDI X F X
+SWIZ X 0003 T
+ADDI X T X
+SWIZ X 0100 X
+
+MULI F 2 T
+ADDI X T X
+SWIZ X 0002 T
+FJMP E
+SUBI X 9 X
+MARK E
+ADDI X F X
+SWIZ X 0003 T
+ADDI X T X
+SWIZ X 0100 X
+
+MULI F 2 T
+ADDI X T X
+SWIZ X 0002 T
+FJMP F
+SUBI X 9 X
+MARK F
+ADDI X F X
+SWIZ X 0003 T
+ADDI X T X
+SWIZ X 0100 X
+
+MULI F 2 T
+ADDI X T X
+SWIZ X 0002 T
+FJMP G
+SUBI X 9 X
+MARK G
+ADDI X F X
+SWIZ X 0003 T
+ADDI X T X
+SWIZ X 0100 X
+
+MULI F 2 T
+ADDI X T X
+SWIZ X 0002 T
+FJMP H
+SUBI X 9 X
+MARK H
+ADDI X F X
+SWIZ X 0003 T
+ADDI X T X
+SWIZ X 0100 X
+
+MULI F 2 T
+ADDI X T X
+SWIZ X 0002 T
+FJMP I
+SUBI X 9 X
+MARK I
+ADDI X F X
+SWIZ X 0003 T
+ADDI X T X
+SWIZ X 0100 X
+
+MULI F 2 T
+ADDI X T X
+SWIZ X 0002 T
+FJMP J
+SUBI X 9 X
+MARK J
+ADDI X F X
+SWIZ X 0003 T
+ADDI X T X
+
+SWIZ X 0001 T
+FJMP DONE
+COPY 15 X
+JUMP B
+
+MARK DONE
+SEEK -16
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+
+
+;--------------------------------------------------------------------
+; XB
+;--------------------------------------------------------------------
+
+MAKE
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F

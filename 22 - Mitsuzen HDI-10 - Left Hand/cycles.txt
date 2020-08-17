@@ -1,0 +1,101 @@
+; Score: 121 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+; M-CNS
+LINK 800
+LINK -3
+LINK -3
+
+MARK A
+COPY #NERV X
+COPY #NERV T
+LINK 3
+LINK 3
+LINK 3
+LINK 3
+COPY X #NERV
+COPY T #NERV
+LINK -3
+LINK -3
+LINK -3
+LINK -3
+JUMP A
+
+
+;--------------------------------------------------------------------
+; XB
+;--------------------------------------------------------------------
+
+; H-CNS
+LINK 800
+LINK 3
+LINK 3
+LINK 3
+
+MARK A
+COPY #NERV X
+COPY #NERV T
+LINK -3
+LINK -3
+LINK -3
+LINK -3
+LINK -3
+LINK -3
+COPY X #NERV
+COPY T #NERV
+LINK 3
+LINK 3
+LINK 3
+LINK 3
+LINK 3
+LINK 3
+JUMP A
+
+
+;--------------------------------------------------------------------
+; XC
+;--------------------------------------------------------------------
+
+; P-CNS
+LINK 800
+LINK 3
+LINK 3
+LINK 3
+LINK 3
+
+MARK A
+COPY #NERV M
+COPY #NERV M
+COPY #NERV M
+COPY #NERV M
+COPY #NERV M
+COPY #NERV M
+COPY #NERV M
+COPY #NERV M
+JUMP A
+
+
+;--------------------------------------------------------------------
+; XD
+;--------------------------------------------------------------------
+
+; P-CNS
+LINK 800
+LINK -3
+LINK -3
+LINK -3
+LINK -3
+
+MARK A
+COPY M #NERV
+COPY M #NERV
+COPY M #NERV
+COPY M #NERV
+COPY M #NERV
+COPY M #NERV
+COPY M #NERV
+COPY M #NERV
+JUMP A

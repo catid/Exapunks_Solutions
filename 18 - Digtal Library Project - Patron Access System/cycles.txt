@@ -1,0 +1,50 @@
+; Score: 368 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+MODE
+GRAB 300
+
+MARK A
+COPY F X
+REPL B
+JUMP A
+
+MARK B
+DIVI X 100 T
+LINK 800
+
+MARK C
+LINK 800
+SUBI T 1 T
+TJMP C
+
+MODI X 100 T
+ADDI T 200 T
+GRAB T
+
+REPL D
+MARK E
+COPY F M
+JUMP E
+
+MARK D
+MAKE
+
+MARK F
+NOOP
+TEST MRD
+FJMP G
+COPY M F
+JUMP F
+
+MARK G
+DIVI X 100 T
+LINK -1
+
+MARK H
+LINK -1
+SUBI T 1 T
+TJMP H

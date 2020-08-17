@@ -1,0 +1,60 @@
+; Score: Wins=100
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+LINK 800
+LINK -1
+
+MARK A
+REPL B
+LINK 800
+REPL B
+LINK 800
+REPL B
+LINK 800
+REPL B
+LINK 800
+REPL B
+LINK 800
+REPL B
+LINK 800
+REPL B
+LINK 800
+REPL B
+LINK 800
+REPL B
+LINK -1
+LINK -1
+LINK -1
+LINK -1
+LINK -1
+LINK -1
+LINK -1
+LINK -1
+JUMP A
+
+MARK B
+COPY #CTRL X
+COPY 0 #CTRL
+TEST X = -1
+FJMP C
+KILL
+MARK C
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+COPY 0 #CTRL
+JUMP C

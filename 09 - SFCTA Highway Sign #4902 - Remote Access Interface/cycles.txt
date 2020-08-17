@@ -1,0 +1,50 @@
+; Score: 118 Cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+GRAB 300
+LINK 800
+
+MARK A
+DIVI X 9 #DATA
+MODI X 9 #DATA
+COPY F #DATA
+ADDI X 1 X
+DIVI X 9 #DATA
+MODI X 9 #DATA
+COPY F #DATA
+ADDI X 1 X
+DIVI X 9 #DATA
+MODI X 9 #DATA
+COPY F #DATA
+ADDI X 1 X
+DIVI X 9 #DATA
+MODI X 9 #DATA
+COPY F #DATA
+ADDI X 1 X
+DIVI X 9 #DATA
+MODI X 9 #DATA
+COPY F #DATA
+ADDI X 1 X
+DIVI X 9 #DATA
+MODI X 9 #DATA
+COPY F #DATA
+ADDI X 1 X
+DIVI X 9 #DATA
+MODI X 9 #DATA
+COPY F #DATA
+ADDI X 1 X
+DIVI X 9 #DATA
+MODI X 9 #DATA
+COPY F #DATA
+ADDI X 1 X
+DIVI X 9 #DATA
+MODI X 9 #DATA
+COPY F #DATA
+ADDI X 1 X
+TEST X > 26
+FJMP A
+
+WIPE

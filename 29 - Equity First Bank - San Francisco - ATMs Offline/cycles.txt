@@ -1,0 +1,69 @@
+; Score: 92 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+GRAB 301
+COPY F M ; CREDIT
+COPY F X ; DEBIT
+COPY M T ; ID
+DROP
+LINK 800
+LINK 800
+GRAB 199
+MODE
+
+SEEK 9999
+COPY 300 F
+SEEK -9999
+
+MARK A
+REPL SPAWN
+COPY F M
+SEEK -1
+COPY F M
+JUMP A
+
+MARK END
+TEST MRD
+TJMP OKAY
+; EXIT TIME!
+KILL
+KILL
+HALT
+
+MARK OKAY
+COPY M T
+HALT
+
+MARK SPAWN
+REPL END
+NOOP
+GRAB M
+MODE
+COPY F M
+SEEK 9999
+COPY T F
+COPY X F
+COPY 1 F
+COPY 0 F
+
+
+;--------------------------------------------------------------------
+; XB
+;--------------------------------------------------------------------
+
+GRAB 300
+COPY M X ; CREDIT
+COPY F M ; ID
+SEEK 9999
+LINK 800
+LINK 800
+
+MARK A
+COPY M F ; ID
+COPY X F ; CREDIT
+COPY 1 F
+COPY 0 F
+JUMP A

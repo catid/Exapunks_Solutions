@@ -1,0 +1,67 @@
+; Score: Wins=100
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+LINK 800
+
+MARK TOP
+LINK 809
+REPL G230
+REPL G231
+NOOP
+REPL G265
+LINK -1
+LINK 828
+REPL G230
+REPL G231
+NOOP
+REPL G265
+LINK -1
+LINK 867
+REPL F210
+REPL F211
+NOOP
+REPL A
+REPL B
+LINK -1
+JUMP TOP
+
+MARK A
+LINK -1
+GRAB 210
+LINK 809
+HALT
+
+MARK B
+LINK -1
+GRAB 211
+LINK 828
+HALT
+
+MARK G230
+GRAB 230
+LINK -1
+HALT
+
+MARK G231
+GRAB 231
+LINK -1
+HALT
+
+MARK G265
+GRAB 265
+LINK -1
+HALT
+
+MARK F210
+GRAB 210
+LINK -1
+LINK 809
+HALT
+
+MARK F211
+GRAB 211
+LINK -1
+LINK 828

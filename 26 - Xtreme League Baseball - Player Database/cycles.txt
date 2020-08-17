@@ -1,0 +1,96 @@
+; Score: 141 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+MAKE
+
+MARK A
+MODE
+
+COPY 1 M
+
+MODE
+TEST M > X
+TJMP BEST
+COPY M T
+COPY M T
+JUMP A
+
+MARK BEST
+SEEK -9999
+COPY M X
+COPY M F
+JUMP A
+
+
+;--------------------------------------------------------------------
+; XB
+;--------------------------------------------------------------------
+
+MODE
+LINK 800
+GRAB 199
+
+MARK A
+COPY F T
+REPL C
+ADDI X 1 X
+
+TEST EOF
+FJMP A
+
+DROP
+
+MARK D
+COPY X T
+
+MARK E
+; WAIT FOR COMPLETE SIG
+COPY M X
+
+SUBI T 1 T
+TJMP E
+
+LINK -1
+KILL
+
+
+MARK C
+GRAB T
+SEEK 1
+
+; X=(BA + ZA + APB) / 3
+ADDI F F X
+ADDI X F X
+DIVI X 3 X
+
+; X += WRT * OI / OD
+MULI F F T
+DIVI T F T
+ADDI X T X
+
+;X += (PC - PS) * 20
+SUBI F F T
+MULI T 20 T
+ADDI X T X
+
+SEEK -9999
+COPY F T
+
+LINK -1
+
+; BLOCK ON M
+SEEK M
+
+MODE
+
+COPY X M
+COPY X M
+COPY T M
+
+LINK 800
+
+MODE
+COPY 1 M

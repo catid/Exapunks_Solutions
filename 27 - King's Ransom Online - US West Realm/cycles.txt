@@ -1,0 +1,53 @@
+; Score: 65 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+GRAB 300
+COPY F X
+
+LINK 800
+
+COPY 6 T
+MARK A
+SUBI T 1 T
+REPL B
+TJMP A
+
+COPY 6 T
+MARK D
+SUBI T 1 T
+REPL E
+TJMP D
+
+LINK -1
+HALT
+
+MARK B
+ADDI T 800 T
+LINK T
+
+KILL
+KILL
+KILL
+HALT
+
+MARK E
+ADDI T 800 T
+LINK T
+
+GRAB 200
+SEEK 2
+COPY X F
+
+MARK F
+COPY F T
+REPL G
+JUMP F
+
+MARK G
+GRAB T
+SEEK 2
+COPY X F
+JUMP F

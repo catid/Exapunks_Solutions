@@ -1,0 +1,125 @@
+; Score: 445 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+MODE ; LOCAL
+GRAB 301
+LINK 800
+
+MULI 7 25 X
+MARK A
+LINK -1
+COPY 1 M
+LINK 800
+
+COPY -1 #DIAL
+COPY F #DIAL
+COPY F #DIAL
+COPY F #DIAL
+COPY F #DIAL
+COPY F #DIAL
+COPY F #DIAL
+COPY F #DIAL
+COPY F #DIAL
+COPY F #DIAL
+COPY F #DIAL
+COPY F #DIAL
+COPY 14 T
+MARK DELAY
+SUBI T 1 T
+TJMP DELAY
+COPY X M ; UNBLOCK+TIME
+SUBI X 25 X
+TEST EOF
+FJMP A
+
+COPY -1 #DIAL
+
+LINK -1
+COPY 0 M
+
+COPY 6 T
+REPL K
+
+LINK -1
+
+MARK K
+KILL
+SUBI T 1 T
+TJMP K
+
+
+;--------------------------------------------------------------------
+; XB
+;--------------------------------------------------------------------
+
+GRAB 300
+
+MARK NEXT
+MODE
+COPY M T
+MODE
+FJMP EXIT
+
+REPL SENDER
+
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+COPY F M
+
+MARK A
+COPY F M
+TEST EOF
+FJMP A
+COPY 0 M
+SEEK -9999
+JUMP NEXT
+
+MARK EXIT
+HALT
+
+MARK SENDER
+MAKE
+
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+COPY M F
+
+MARK B
+COPY M T
+FJMP DONE
+COPY T F
+JUMP B
+
+MARK DONE
+LINK 800
+MODE ; LOCAL
+COPY M X ; UNBLOCK
+
+LINK 800
+SEEK -9999
+
+MARK C
+COPY F #DATA
+TEST EOF
+FJMP C
+
+ADDI X 1 T
+MARK D
+SUBI T 1 T
+TJMP D
+
+COPY 1 #PAGE
+WIPE

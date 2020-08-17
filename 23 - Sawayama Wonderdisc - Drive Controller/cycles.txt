@@ -1,0 +1,62 @@
+; Score: 8444 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+GRAB 300
+COPY F X
+DROP
+
+LINK 800
+
+COPY 8 #AUTH
+COPY 0 #AUTH
+COPY 3 #AUTH
+COPY 2 #AUTH
+COPY 7 #AUTH
+COPY 1 #AUTH
+COPY 0 #AUTH
+COPY 4 #AUTH
+COPY 9 #AUTH
+COPY 5 #AUTH
+COPY 1 #AUTH
+COPY 2 #AUTH
+COPY 5 #AUTH
+COPY 2 #AUTH
+COPY 6 #AUTH
+
+MARK E
+COPY #TRAK T
+REPL A
+MAKE
+
+MARK C
+NOOP
+NOOP
+TEST MRD
+FJMP F
+TEST M > -1
+FJMP B
+COPY M F
+JUMP C
+MARK B
+COPY M T
+COPY X F
+JUMP C
+
+MARK F
+LINK 800
+DROP
+LINK -1
+JUMP E
+
+
+MARK A
+LINK 801
+GRAB T
+MARK D
+COPY F X
+COPY X M
+COPY X M
+JUMP D

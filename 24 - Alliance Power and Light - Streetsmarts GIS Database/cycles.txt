@@ -1,0 +1,67 @@
+; Score: 43 cycles
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+GRAB 300
+LINK 800
+
+COPY F X
+REPL B
+REPL C
+LINK 801
+REPL B
+REPL C
+LINK 801
+REPL B
+REPL C
+LINK 801
+REPL B
+REPL C
+
+COPY F X
+REPL B
+REPL C
+LINK 803
+REPL B
+REPL C
+LINK 803
+REPL B
+REPL C
+LINK 803
+REPL B
+REPL C
+LINK -1
+
+NOOP
+NOOP
+NOOP
+NOOP
+NOOP
+NOOP
+NOOP
+NOOP
+
+COPY 1 M
+COPY 1 M
+
+HALT
+
+MARK B
+LINK 802
+HOST T
+TEST X = T
+FJMP B
+JUMP D
+
+MARK C
+HOST T
+TEST X = T
+TJMP D
+LINK 800
+JUMP C
+
+MARK D
+COPY M X
+COPY 0 #POWR

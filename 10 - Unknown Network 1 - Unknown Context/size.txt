@@ -1,0 +1,29 @@
+; Score: 18 Size
+
+;--------------------------------------------------------------------
+; XA
+;--------------------------------------------------------------------
+
+COPY 800 X
+
+MARK F
+COPY 4 T
+
+MARK E
+LINK X
+
+MARK A
+SUBI T 1 T
+FJMP D
+REPL B
+JUMP E
+
+MARK B
+LINK 801
+JUMP A
+
+MARK D
+KILL
+GRAB 276
+COPY -1 X
+JUMP F
