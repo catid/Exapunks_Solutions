@@ -1,10 +1,11 @@
-; Score: 397 cycles
+; Score: 175 cycles
 
 ;--------------------------------------------------------------------
 ; XA
 ;--------------------------------------------------------------------
 
-MODE
+; CONFIGURE UPLINK
+MODE ; LOCAL
 GRAB 300
 LINK 800
 LINK 799
@@ -18,101 +19,139 @@ COPY F X
 REPL ELEV
 
 SEEK 1
-COPY F X
-COPY X #FREQ
+COPY F #FREQ
 WIPE
-
-GRAB 301
-SEEK 1
-
-COPY M X
-COPY M X
-MODE
-
-MARK E
-ADDI -9999 F X
-ADDI M X X
-TEST X > 1
-TJMP F
-ADDI X 9999 #DATA
-JUMP E
-MARK F
-SUBI X 1 #DATA
-JUMP E
+HALT
 
 
+; SET AZIMUTH = X
 MARK AZIM
 LINK 800
 
-SUBI X #AZIM T
-TEST T > -8
-TJMP A
-COPY -1 #MOTR
-COPY -1 #MOTR
-COPY -1 #MOTR
-COPY -1 #MOTR
-COPY -1 #MOTR
-COPY -1 #MOTR
-COPY -1 #MOTR
-COPY -1 #MOTR
-
 MARK A
-SUBI X #AZIM T
-MULI T 9999 T
-DIVI T 9999 T
-FJMP B
-COPY T #MOTR
-JUMP A
-MARK B
+ SUBI X #AZIM T
+ COPY T #MOTR
+TJMP A
+
 LINK -1
 COPY 1 M
 HALT
 
+
+; SET ELEVATION = X
 MARK ELEV
 LINK 801
-MARK C
-SUBI X #ELEV T
-MULI T 9999 T
-DIVI T 9999 T
-FJMP D
-COPY T #MOTR
-JUMP C
-MARK D
+
+MARK B
+ SUBI X #ELEV T
+ COPY T #MOTR
+TJMP B
+
 LINK -1
 COPY 1 M
-HALT
 
 
 ;--------------------------------------------------------------------
 ; XB
 ;--------------------------------------------------------------------
 
+; COPY TO GLOBAL M
+MODE ; LOCAL
 GRAB 301
+SEEK 1
 LINK 800
-LINK 799
+
+MARK E
+SUBI F 9999 X
+REPL COPY
+NOOP
+TEST EOF
+FJMP E
+
+MODE ; GLOBAL
+NOOP
+NOOP
+NOOP
+NOOP
+COPY -1 M
+KILL
+LINK -1
+HALT
+
+; ENCRYPT TO GLOBAL
+MARK COPY
+ADDI M X X
+MODE ; GLOBAL
+TEST X > 1
+TJMP POS
+ ADDI X 9999 M
+HALT
+MARK POS
+ SUBI X 1 M
+HALT
 
 
 ;--------------------------------------------------------------------
 ; XC
 ;--------------------------------------------------------------------
 
+; KEY READER
+MODE ; LOCAL
 LINK 800
 GRAB 199
 
-COPY 24 X
-MARK A
+MARK K
 COPY F M
-SUBI X 1 X
-TEST X = 0
-TJMP B
 TEST EOF
-FJMP A
+FJMP K
 SEEK -9999
+JUMP K
+
+
+;--------------------------------------------------------------------
+; XD
+;--------------------------------------------------------------------
+
+; FINAL DATA WRITER
+MODE ; LOCAL
+LINK 800
+LINK 799
+
+; WAIT FOR ALL CLEAR
+VOID M
+VOID M
+VOID M
+
+GRAB 400
+
+MARK SEND
+COPY F #DATA
+COPY F #DATA
+COPY F #DATA
+COPY F #DATA
+COPY F #DATA
+COPY F #DATA
+TEST EOF
+FJMP SEND
+WIPE
+
+
+;--------------------------------------------------------------------
+; XE
+;--------------------------------------------------------------------
+
+; CONSTRUCT OUTPUT FILE
+LINK 800
+LINK 799
+MAKE
+
+MARK A
+COPY M X
+TEST X < 0
+TJMP DONE
+COPY X F
 JUMP A
 
-MARK B
-DROP
-LINK 799
-KILL
-GRAB 301
-WIPE
+MARK DONE
+MODE ; LOCAL
+COPY 1 M

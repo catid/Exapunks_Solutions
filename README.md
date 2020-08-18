@@ -30,7 +30,7 @@ These are my solutions to the ExaPunks puzzles: https://store.steampowered.com/a
 | '24 - Alliance Power and Light - Streetsmarts GIS Database'/                    | 43       |
 | '26 - Xtreme League Baseball - Player Database'/                    | 141       |
 | "27 - King's Ransom Online - US West Realm"/                    | 65       |
-| '28 - KGOG-TV - Satellite Uplink'/                    | 397       |
+| '28 - KGOG-TV - Satellite Uplink'/                    | 175       |
 | '29 - Equity First Bank - San Francisco - ATMs Offline'/                    | 92       |
 | '31 - TEC Exa-Blaster Modem - Dataphone Network'/                    | 1127       |
 | '32 - Last Stop Snaxnet - Warehouse 27'/                    | 144       |
