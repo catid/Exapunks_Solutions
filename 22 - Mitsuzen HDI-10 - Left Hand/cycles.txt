@@ -1,10 +1,10 @@
-; Score: 121 cycles
+; Score: 92 cycles
 
 ;--------------------------------------------------------------------
 ; XA
 ;--------------------------------------------------------------------
 
-; M-CNS
+; M-CNS <-> M-HND
 LINK 800
 LINK -3
 LINK -3
@@ -29,29 +29,23 @@ JUMP A
 ; XB
 ;--------------------------------------------------------------------
 
-; H-CNS
+; P-HND
 LINK 800
 LINK 3
 LINK 3
 LINK 3
+LINK 3
+
+COPY M T
+MARK SYNC
+SUBI T 1 T
+TJMP SYNC
+; NOW IN LOCK-STEP!
 
 MARK A
-COPY #NERV X
-COPY #NERV T
-LINK -3
-LINK -3
-LINK -3
-LINK -3
-LINK -3
-LINK -3
-COPY X #NERV
-COPY T #NERV
-LINK 3
-LINK 3
-LINK 3
-LINK 3
-LINK 3
-LINK 3
+COPY #NERV M
+NOOP
+NOOP
 JUMP A
 
 
@@ -61,19 +55,43 @@ JUMP A
 
 ; P-CNS
 LINK 800
-LINK 3
+LINK -3
+LINK -3
+LINK -3
+LINK -3
+
+COPY M T
+MARK SYNC
+SUBI T 1 T
+TJMP SYNC
+; NOW IN LOCK-STEP!
+
+MARK A
+COPY M #NERV
+NOOP
+NOOP
+JUMP A
+
+
+;--------------------------------------------------------------------
+; XD
+;--------------------------------------------------------------------
+
+; H-HND
+LINK 800
 LINK 3
 LINK 3
 LINK 3
 
+COPY M T
+MARK SYNC
+SUBI T 1 T
+TJMP SYNC
+; NOW IN LOCK-STEP!
+
 MARK A
-COPY #NERV M
-COPY #NERV M
-COPY #NERV M
-COPY #NERV M
-COPY #NERV M
-COPY #NERV M
-COPY #NERV M
+NOOP
+NOOP
 COPY #NERV M
 JUMP A
 
@@ -82,20 +100,30 @@ JUMP A
 ; XD
 ;--------------------------------------------------------------------
 
-; P-CNS
+; H-CNS
 LINK 800
 LINK -3
 LINK -3
 LINK -3
-LINK -3
+
+COPY M T
+MARK SYNC
+SUBI T 1 T
+TJMP SYNC
+; NOW IN LOCK-STEP!
 
 MARK A
-COPY M #NERV
-COPY M #NERV
-COPY M #NERV
-COPY M #NERV
-COPY M #NERV
-COPY M #NERV
-COPY M #NERV
+NOOP
+NOOP
 COPY M #NERV
 JUMP A
+
+
+;--------------------------------------------------------------------
+; XD
+;--------------------------------------------------------------------
+
+COPY 4 M
+COPY 3 M
+COPY 2 M
+COPY 1 M

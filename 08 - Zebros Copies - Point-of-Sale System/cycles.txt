@@ -1,19 +1,22 @@
-; Score: 61 Cycles
+; Score: 57 Cycles
 
 ;--------------------------------------------------------------------
 ; XA
 ;--------------------------------------------------------------------
 
-GRAB 300
-COPY F X
-DROP
 LINK 800
 GRAB 200
-MARK LOOP
+COPY M X
+
 TEST F = X
+TJMP FOUND
+
+MARK LOOP
 SEEK 2
+TEST F = X
 FJMP LOOP
-SEEK -2
+
+MARK FOUND
 COPY X M
 COPY F M
 COPY F M
@@ -35,3 +38,11 @@ LINK -1
 COPY M F
 COPY M F
 COPY M F
+
+
+;--------------------------------------------------------------------
+; XC
+;--------------------------------------------------------------------
+
+GRAB 300
+COPY F M

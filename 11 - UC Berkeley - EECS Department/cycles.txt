@@ -1,4 +1,4 @@
-; Score: 130 cycles
+; Score: 122 cycles
 
 ;--------------------------------------------------------------------
 ; XA
@@ -22,13 +22,16 @@ WIPE
 GRAB 200
 SEEK 9999
 
-MARK B
 SEEK -3
 TEST F = X
-SEEK -1
-FJMP B
-SEEK 1
+TJMP D
 
+MARK B
+SEEK -4
+TEST F = X
+FJMP B
+
+MARK D
 COPY F X
 COPY F T
 COPY T M
@@ -40,8 +43,6 @@ MARK C
 COPY F M
 SUBI T 1 T
 TJMP C
-
-HALT
 
 
 ;--------------------------------------------------------------------
@@ -55,5 +56,3 @@ MARK A
 COPY M F
 SUBI T 1 T
 TJMP A
-
-HALT

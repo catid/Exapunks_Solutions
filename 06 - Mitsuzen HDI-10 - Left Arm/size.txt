@@ -1,4 +1,4 @@
-; Score: 70 Cycles
+; Score: 21 Size
 
 ;--------------------------------------------------------------------
 ; XA
@@ -6,28 +6,27 @@
 
 LINK 800
 
-; SPAWNER
 MARK A
-REPL B
-JUMP A
-
-; CARRIER
-MARK B
 COPY #NERV X
-
-LINK 1
-TEST X > 50
-FJMP BELOW
+TEST X < 50
+TJMP B
  COPY 50 X
-MARK BELOW
+MARK B
+TEST X > -120
+TJMP C
+ COPY -120 X
+MARK C
 
 LINK 1
-TEST X < -120
-FJMP ABOVE
- COPY -120 X
-MARK ABOVE
-
+LINK 1
 LINK 1
 LINK 1
 
 COPY X #NERV
+
+LINK -1
+LINK -1
+LINK -1
+LINK -1
+
+JUMP A

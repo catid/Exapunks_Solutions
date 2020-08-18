@@ -1,4 +1,4 @@
-; Score: 306 Cycles
+; Score: 211 Cycles
 
 ;--------------------------------------------------------------------
 ; XA
@@ -12,6 +12,46 @@ LINK 800
 MAKE
 
 MARK A
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
+COPY T F
+MODI -1 T T
 COPY T F
 MODI -1 T T
 JUMP A
