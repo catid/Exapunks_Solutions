@@ -18,7 +18,7 @@ These are my solutions to the ExaPunks puzzles: https://store.steampowered.com/a
 | '10 - Unknown Network 1 - Unknown Context'/                    | 18      |
 | '11 - UC Berkeley - EECS Department'/                    | 122      |
 | '12 - Workhouse - Work Management System'/                    | 240      |
-| '13 - Equity First Bank - San Francisco'/                    | 1189      |
+| '13 - Equity First Bank - San Francisco'/                    | 1065      |
 | '14 - Mitsuzen HDI-10 - Heart'/                    | 97       |
 | '15 - Trash World News - Unknown Context'/                    | 694      |
 | '17 - TEC Redshift - Development Kit'/                    | 2984       |
