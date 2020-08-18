@@ -1,4 +1,4 @@
-; Score: 175 cycles
+; Score: 172 cycles
 
 ;--------------------------------------------------------------------
 ; XA
@@ -68,14 +68,10 @@ NOOP
 TEST EOF
 FJMP E
 
-MODE ; GLOBAL
-NOOP
-NOOP
-NOOP
-NOOP
-COPY -1 M
 KILL
 LINK -1
+MODE ; GLOBAL
+COPY -1 M
 HALT
 
 ; ENCRYPT TO GLOBAL
@@ -88,7 +84,6 @@ TJMP POS
 HALT
 MARK POS
  SUBI X 1 M
-HALT
 
 
 ;--------------------------------------------------------------------
@@ -105,6 +100,7 @@ COPY F M
 TEST EOF
 FJMP K
 SEEK -9999
+COPY F M ; UNROLL -1
 JUMP K
 
 
@@ -125,6 +121,8 @@ VOID M
 GRAB 400
 
 MARK SEND
+COPY F #DATA
+COPY F #DATA
 COPY F #DATA
 COPY F #DATA
 COPY F #DATA
