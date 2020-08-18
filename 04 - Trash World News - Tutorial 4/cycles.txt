@@ -1,57 +1,70 @@
-; Score: 211 Cycles
+; Score: 152 Cycles
 
 ;--------------------------------------------------------------------
 ; XA
 ;--------------------------------------------------------------------
 
 LINK 800
-GRAB 200
-COPY F T
-WIPE
 LINK 800
 MAKE
+COPY M X
 
 MARK A
+COPY X F
+SUBI X 1 F
+SUBI X 2 F
+SUBI X 3 F
+SUBI X 4 F
+SUBI X 5 F
+SUBI X 6 F
+SUBI X 7 F
+SUBI X 8 F
+SUBI X 9 X
+TEST X < 9
+FJMP A
+COPY X T
+
+FJMP END
 COPY T F
-MODI -1 T T
+SUBI T 1 T
+
+FJMP END
 COPY T F
-MODI -1 T T
+SUBI T 1 T
+
+FJMP END
 COPY T F
-MODI -1 T T
+SUBI T 1 T
+
+FJMP END
 COPY T F
-MODI -1 T T
+SUBI T 1 T
+
+FJMP END
 COPY T F
-MODI -1 T T
+SUBI T 1 T
+
+FJMP END
 COPY T F
-MODI -1 T T
+SUBI T 1 T
+
+FJMP END
 COPY T F
-MODI -1 T T
+SUBI T 1 T
+
+FJMP END
 COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-COPY T F
-MODI -1 T T
-JUMP A
+SUBI T 1 T
+
+MARK END
+COPY 0 F
+
+
+;--------------------------------------------------------------------
+; XB
+;--------------------------------------------------------------------
+
+LINK 800
+GRAB 200
+COPY F M
+WIPE

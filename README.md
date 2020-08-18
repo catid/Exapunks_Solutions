@@ -9,7 +9,7 @@ These are my solutions to the ExaPunks puzzles: https://store.steampowered.com/a
 | '01 - Trash World News - Tutorial 1'/                    | 4      |
 | '02 - Trash World News - Tutorial 2'/                    | 7      |
 | '03 - Trash World News - Tutorial 3'/                    | 10      |
-| '04 - Trash World News - Tutorial 4'/                    | 211      |
+| '04 - Trash World News - Tutorial 4'/                    | 152      |
 | "05 - Euclid's Pizza - Order System"/                    | 13      |
 | '06 - Mitsuzen HDI-10 - Left Arm'/                    | 70       |
 | '07 - Last Stop Snaxnet - Factory 11'/                    | 29      |
