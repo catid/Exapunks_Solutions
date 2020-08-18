@@ -1,129 +1,61 @@
-; Score: 92 cycles
+; Score: 50 cycles
 
 ;--------------------------------------------------------------------
 ; XA
 ;--------------------------------------------------------------------
 
-; M-CNS <-> M-HND
+; SEEMS TO BE DESIGNED
+; FOR THIS TIGHT SYNC-
+; NODE DISTANCES ARE
+; EXACTLY WHAT IS NEEDED
 LINK 800
-LINK -3
-LINK -3
+REPL PR
+REPL PW
+REPL HR
+REPL HW
+REPL MR
 
-MARK A
-COPY #NERV X
-COPY #NERV T
+LINK 3
+LINK 3
+JUMP W
+
+MARK PR
 LINK 3
 LINK 3
 LINK 3
 LINK 3
-COPY X #NERV
-COPY T #NERV
-LINK -3
-LINK -3
-LINK -3
-LINK -3
-JUMP A
+JUMP R
 
+MARK PW
+LINK -3
+LINK -3
+LINK -3
+LINK -3
+JUMP W
 
-;--------------------------------------------------------------------
-; XB
-;--------------------------------------------------------------------
-
-; P-HND
-LINK 800
+MARK HR
 LINK 3
 LINK 3
 LINK 3
-LINK 3
+JUMP R
 
-COPY M T
-MARK SYNC
-SUBI T 1 T
-TJMP SYNC
-; NOW IN LOCK-STEP!
-
-MARK A
-COPY #NERV M
-NOOP
-NOOP
-JUMP A
-
-
-;--------------------------------------------------------------------
-; XC
-;--------------------------------------------------------------------
-
-; P-CNS
-LINK 800
+MARK HW
 LINK -3
 LINK -3
 LINK -3
+JUMP W
+
+MARK MR
 LINK -3
+LINK -3
+JUMP R
 
-COPY M T
-MARK SYNC
-SUBI T 1 T
-TJMP SYNC
-; NOW IN LOCK-STEP!
-
-MARK A
+;3 CYCLES AND 3 READERS!
+MARK W
 COPY M #NERV
 NOOP
-NOOP
-JUMP A
+JUMP W
 
-
-;--------------------------------------------------------------------
-; XD
-;--------------------------------------------------------------------
-
-; H-HND
-LINK 800
-LINK 3
-LINK 3
-LINK 3
-
-COPY M T
-MARK SYNC
-SUBI T 1 T
-TJMP SYNC
-; NOW IN LOCK-STEP!
-
-MARK A
-NOOP
-NOOP
-COPY #NERV M
-JUMP A
-
-
-;--------------------------------------------------------------------
-; XD
-;--------------------------------------------------------------------
-
-; H-CNS
-LINK 800
-LINK -3
-LINK -3
-LINK -3
-
-COPY M T
-MARK SYNC
-SUBI T 1 T
-TJMP SYNC
-; NOW IN LOCK-STEP!
-
-MARK A
-NOOP
-NOOP
-COPY M #NERV
-JUMP A
-
-
-;--------------------------------------------------------------------
-; XD
-;--------------------------------------------------------------------
-
-COPY 4 M
-COPY 3 M
-COPY 2 M
-COPY 1 M
+MARK R
+COPY #NERV M 
+JUMP R

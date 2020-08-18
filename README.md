@@ -25,7 +25,7 @@ These are my solutions to the ExaPunks puzzles: https://store.steampowered.com/a
 | '18 - Digtal Library Project - Patron Access System'/                    | 368       |
 | '19 - TEC Exa-Blaster Modem - Radio Stations'/                    | 238       |
 | "20 - Emerson's Guide - Streetsmarts GIS Database"/                    | 42      |
-| '22 - Mitsuzen HDI-10 - Left Hand'/                    | 92       |
+| '22 - Mitsuzen HDI-10 - Left Hand'/                    | 50       |
 | '23 - Sawayama Wonderdisc - Drive Controller'/                    | 4448       |
 | '24 - Alliance Power and Light - Streetsmarts GIS Database'/                    | 43       |
 | '26 - Xtreme League Baseball - Player Database'/                    | 141       |
